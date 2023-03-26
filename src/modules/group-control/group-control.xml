@@ -1,0 +1,26 @@
+<GuiXml>
+    <Controls>
+        <TopLevelControl name="CE_GroupControl" clampedToScreen="true" movable="true" mouseEnabled="true" hidden="false">
+            <OnInitialized>
+                CE_GROUP_CONTROL_INITIALIZE_UI(self)
+            </OnInitialized>
+            <Dimensions x="150" y="100"/>
+            <Anchor point="CENTER" relativeTo="GUI_ROOT" relativePoint="CENTER" offsetX="-125" offsetY="-140" />
+            <Controls>
+                <Backdrop name="$(parent)_BG" inherits="ZO_DefaultBackdrop">
+                    <AnchorFill/>
+                </Backdrop>
+                <Label name="$(parent)WeaponDamage" font="$(BOLD_FONT)|$(KB_28)|soft-shadow-thick" horizontalAlignment="CENTER" verticalAlignment="CENTER">
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetY="5" />
+                    <Anchor point="TOPRIGHT" relativeTo="$(parent)" relativePoint="TOPRIGHT" offsetY="5" />
+                    <Dimensions y="45"/>
+                </Label>
+                <Label name="$(parent)PhysicalPen" font="$(BOLD_FONT)|$(KB_28)|soft-shadow-thick" horizontalAlignment="CENTER" verticalAlignment="CENTER">
+                    <Anchor point="BOTTOMLEFT" relativeTo="$(parent)" relativePoint="BOTTOMLEFT" offsetY="-5" />
+                    <Anchor point="BOTTOMRIGHT" relativeTo="$(parent)" relativePoint="BOTTOMRIGHT" offsetY="-5" />
+                    <Dimensions y="45"/>
+                </Label>
+            </Controls>
+        </TopLevelControl>
+    </Controls>
+</GuiXml>

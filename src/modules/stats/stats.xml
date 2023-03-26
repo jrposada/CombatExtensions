@@ -1,0 +1,29 @@
+<GuiXml>
+    <Controls>
+        <TopLevelControl name="CE_Stats" clampedToScreen="true" movable="true" mouseEnabled="true" hidden="true">
+            <OnInitialized>
+                CE_STATS_INITIALIZE_UI(self)
+            </OnInitialized>
+            <OnMoveStop>
+                CE_STATS_ON_MOVE_STOP(self)
+            </OnMoveStop>
+            <Dimensions x="150" y="100"/>
+            <Anchor point="CENTER" relativeTo="GUI_ROOT" relativePoint="CENTER" offsetX="-125" offsetY="-140" />
+            <Controls>
+                <Backdrop name="$(parent)_BG" inherits="ZO_DefaultBackdrop">
+                    <AnchorFill/>
+                </Backdrop>
+                <Label name="$(parent)WeaponDamage" font="$(BOLD_FONT)|$(KB_28)|soft-shadow-thick" horizontalAlignment="CENTER" verticalAlignment="CENTER">
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetY="5" />
+                    <Anchor point="TOPRIGHT" relativeTo="$(parent)" relativePoint="TOPRIGHT" offsetY="5" />
+                    <Dimensions y="45"/>
+                </Label>
+                <Label name="$(parent)PhysicalPen" font="$(BOLD_FONT)|$(KB_28)|soft-shadow-thick" horizontalAlignment="CENTER" verticalAlignment="CENTER">
+                    <Anchor point="BOTTOMLEFT" relativeTo="$(parent)" relativePoint="BOTTOMLEFT" offsetY="-5" />
+                    <Anchor point="BOTTOMRIGHT" relativeTo="$(parent)" relativePoint="BOTTOMRIGHT" offsetY="-5" />
+                    <Dimensions y="45"/>
+                </Label>
+            </Controls>
+        </TopLevelControl>
+    </Controls>
+</GuiXml>
