@@ -25,11 +25,11 @@ src/infrastructure/controls.lua
 src/lang/en.lua
 src/lang/$(language).lua
 
-src/modules/group-control/group-control.lua
-src/modules/group-control/group-control.xml
+;src/modules/group-control/group-control.lua
+;src/modules/group-control/group-control.xml
 src/modules/crown/crown.lua
-src/modules/stats/stats.lua
-src/modules/stats/stats.xml
+;src/modules/stats/stats.lua
+;src/modules/stats/stats.xml
 
 src/settings-menu.lua
 src/main.lua
