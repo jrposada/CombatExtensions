@@ -1,29 +1,48 @@
--- First, we create a namespace for our addon by declaring a top-level table that will hold everything else.
+-- =============================================================================
+-- Localized Globals
+-- =============================================================================
+local EVENT_MANAGER = EVENT_MANAGER
+local EVENT_ADD_ON_LOADED = EVENT_ADD_ON_LOADED
+local ZO_SavedVars = ZO_SavedVars
+local GetWorldName = GetWorldName
+local GetDisplayName = GetDisplayName
+
+-- =============================================================================
+-- Constants
+-- =============================================================================
+local ON_ADDON_LOADED_EVENT_NAME = "_OnAddOnLoaded"
+
+-- =============================================================================
+-- Module Declaration
+-- =============================================================================
 local CE = CombatExtensions
-local EM = EVENT_MANAGER
 
-local onAddOnLoadedEventName = '_OnAddOnLoaded'
+-- =============================================================================
+-- Private Functions
+-- =============================================================================
 
--- Then we create an event handler function which will be called when the "addon loaded" event
--- occurs. We'll use this to initialize our addon after all of its resources are fully loaded.
-local function OnAddOnLoaded(eventCode, addonName)
-    -- The event fires each time *any* addon loads - but we only care about when our own addon loads.
+--- Event handler for addon loaded event.
+--- Initializes the addon when it is fully loaded.
+--- @param eventCode number The event code
+--- @param addonName string The name of the addon that was loaded
+local function onAddOnLoaded(eventCode, addonName)
+    -- Only initialize when our addon loads
     if addonName ~= CE.name then return end
-    EM:UnregisterForEvent(CE.name .. onAddOnLoadedEventName, EVENT_ADD_ON_LOADED)
-
-    -- Migrate old saved vars versions
+    EVENT_MANAGER:UnregisterForEvent(CE.name .. ON_ADDON_LOADED_EVENT_NAME, EVENT_ADD_ON_LOADED)
 
     -- Load saved variables
     CE.SavedVars = ZO_SavedVars:NewAccountWide(CE.name .. "_Vars", CE.varsVersion, nil, CE.DefaultVars, GetWorldName())
     CE.CanDebug = GetDisplayName() == "@Panicida"
 
-    -- Initialize stuff
+    -- Initialize modules
     CE_CROWN.Initialize()
     CE_STATS:RestoreAnchor()
 
-    -- Init settings menu
+    -- Initialize settings menu
     CE.SettingsMenu.Initialize()
 end
 
--- Finally, we'll register our event handler function to be called when the proper event occurs.
-EVENT_MANAGER:RegisterForEvent(CE.name .. onAddOnLoadedEventName, EVENT_ADD_ON_LOADED, OnAddOnLoaded)
+-- =============================================================================
+-- Initialization
+-- =============================================================================
+EVENT_MANAGER:RegisterForEvent(CE.name .. ON_ADDON_LOADED_EVENT_NAME, EVENT_ADD_ON_LOADED, onAddOnLoaded)
