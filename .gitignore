@@ -40,4 +40,7 @@ luac.out
 *.hex
 
 # Build
-build/
+dist/
+
+# NodeJS
+node_modules
