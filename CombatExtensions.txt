@@ -4,7 +4,7 @@
 ## Version: semantic-release
 ## AddOnVersion: semantic-release
 ## APIVersion: 101048
-## DependsOn: LibAddonMenu-2.0>=41
+## DependsOn: LibPanicida>=002000000 LibAddonMenu-2.0>=41
 ## SavedVariables: CombatExtensions_Vars
 
 
