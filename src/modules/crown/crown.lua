@@ -28,11 +28,11 @@ local Crown = {}
 --- Enables the crown marker for the group leader on the compass.
 --- Sets the floating marker to display at the configured size and texture.
 local function enableCrownMarker()
-    SetFloatingMarkerInfo(
-        MAP_PIN_TYPE_GROUP_LEADER,
-        CROWN_MARKER_SIZE,
-        CROWN_MARKER_TEXTURE
-    )
+  SetFloatingMarkerInfo(
+    MAP_PIN_TYPE_GROUP_LEADER,
+    CROWN_MARKER_SIZE,
+    CROWN_MARKER_TEXTURE
+  )
 end
 
 -- -----------------------------------------------------------------------------
@@ -42,12 +42,12 @@ end
 --- Initializes the Crown module.
 --- Registers for player activation to enable the crown marker.
 function Crown.Initialize()
-    local CE = CombatExtensions
-    EVENT_MANAGER:RegisterForEvent(
-        CE.name .. "_Crown_PlayerReady",
-        EVENT_PLAYER_ACTIVATED,
-        enableCrownMarker
-    )
+  local CE = CombatExtensions
+  EVENT_MANAGER:RegisterForEvent(
+    CE.name .. "_Crown_PlayerReady",
+    EVENT_PLAYER_ACTIVATED,
+    enableCrownMarker
+  )
 end
 
 -- -----------------------------------------------------------------------------

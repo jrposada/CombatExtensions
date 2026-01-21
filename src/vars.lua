@@ -1,35 +1,35 @@
 CombatExtensions = {
-    name = "CombatExtensions",
-    version = "0.0.1",
-    varsVersion = "0.0.1",
-    CanDebug = false,
-    Translate = function(var) return CombatExtensions.Localization[var] or var end,
-    SettingsMenu = {},
-    DefaultVars = {
-        debug = {
-            isEnabled = false
-        },
-        modules = {
-            groupControl = {
-                watchedEffectTypes = {}
-            },
-            stats = {
-                anchor = nil
-            }
-        }
+  name = "CombatExtensions",
+  version = "0.0.1",
+  varsVersion = "0.0.1",
+  CanDebug = false,
+  Translate = function(var) return CombatExtensions.Localization[var] or var end,
+  SettingsMenu = {},
+  DefaultVars = {
+    debug = {
+      isEnabled = false
     },
-    SavedVars = {
-        debug = {
-            isEnabled = false
-        },
-        modules = {
-            groupControl = {
-                watchedEffectTypes = {}
-            },
-            stats = {
-                anchor = nil
-            }
-        }
+    modules = {
+      groupControl = {
+        watchedEffectTypes = {}
+      },
+      stats = {
+        anchor = nil
+      }
+    }
+  },
+  SavedVars = {
+    debug = {
+      isEnabled = false
     },
-    LogLater = function(obj) zo_callLater(function() d(obj) end, 200) end
+    modules = {
+      groupControl = {
+        watchedEffectTypes = {}
+      },
+      stats = {
+        anchor = nil
+      }
+    }
+  },
+  LogLater = function(obj) zo_callLater(function() d(obj) end, 200) end
 }
